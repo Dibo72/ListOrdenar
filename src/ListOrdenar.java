@@ -1,15 +1,33 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+import java.util.Comparator;
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+public class ListOrdenar {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        List<Integer> lista = new ArrayList<>();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("Introduce cuantos numeros vas a introducir:");
+        int longitud = sc.nextInt();
+
+        for (int i = 0; i < longitud; i++) {
+            System.out.println("Introduce un numero");
+            int num = sc.nextInt();
+            lista.add(num);
+        }
+        System.out.println();
+
+        System.out.println("Lista normal");
+        for (int i : lista) {
+            System.out.println(i);
+        }
+
+        lista.sort(Comparator.comparing(Integer::intValue));
+        System.out.println();
+
+        System.out.println("Lista ordenada:");
+        for (int i : lista) {
+            System.out.println(i);
         }
     }
 }
